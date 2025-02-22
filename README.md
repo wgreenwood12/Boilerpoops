@@ -9,5 +9,9 @@ pip install -r requirements.txt
 2. command to start backend server:
 uvicorn main:app --reload
 
+
+(First time to install node and npm):
+cd frontend
+npm install
 3. To start frontend locally:
 npm start
