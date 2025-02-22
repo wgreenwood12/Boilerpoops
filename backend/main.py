@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -15,6 +16,14 @@ app.add_middleware(
 # Sample endpoint
 @app.get("/")
 def read_root():
-    return {"message": "HELOOOOOO from BoilerDumps Backend!"}
+    return {"message": "Hello from BoilerDumps Backend!"}
 
+# Define request model for building clicks
+class BuildingClick(BaseModel):
+    building_id: int
 
+# Handle building click event
+@app.post("/building-click")
+def building_click(data: BuildingClick):
+    print(f"Building {data.building_id} was clicked!")
+    return {"message": f"Building {data.building_id} was clicked!"}
