@@ -15,4 +15,6 @@ app.add_middleware(
 # Sample endpoint
 @app.get("/")
 def read_root():
-    return {"message": "Hello from BoilerDumps Backend!"}
+    return {"message": "HELOOOOOO from BoilerDumps Backend!"}
+
+
