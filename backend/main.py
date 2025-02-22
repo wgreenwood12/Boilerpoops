@@ -25,5 +25,4 @@ class BuildingClick(BaseModel):
 # Handle building click event
 @app.post("/building-click")
 def building_click(data: BuildingClick):
-    print(f"Building {data.building_id} was clicked!")
     return {"message": f"Building {data.building_id} was clicked!"}
