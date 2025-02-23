@@ -1,0 +1,63 @@
+/* Overall container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #FFFFFF; /* Use white background */
+  }
+  
+  /* Main content container */
+  .main-content {
+    display: flex;
+    width: 100%;
+    height: 70vh; /* Adjust the height of the main content */
+  }
+  
+  /* Map panel */
+  .map-panel {
+    flex: 1;
+    padding: 5px;
+    background-color: #F5F5F5; /* Light gray background for the map */
+  }
+  
+  /* Info panel */
+  .info-panel {
+    flex: 1;
+    padding: 20px;
+    background-color: #F4F4F4; /* Slightly grayish background */
+    border-left: 2px solid #6A6A6A; /* Purdue gray border */
+    overflow-y: auto;
+    height: 66vh; /* Adjust height */
+    color: #2E2A47; /* Purdue Black text color */
+  }
+  
+  /* Header */
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2E2A47; /* Purdue Black */
+  }
+  
+  /* Subtitle */
+  .subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #FDB913; /* Purdue Gold */
+  }
+  
+  /* Add some styling for buttons or interactive elements if needed */
+  button {
+    background-color: #FDB913; /* Purdue Gold */
+    color: #FFFFFF; /* White text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    background-color: #E0A800; /* Slightly darker gold on hover */
+  }
+  
