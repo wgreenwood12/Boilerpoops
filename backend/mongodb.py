@@ -7,13 +7,27 @@ uri = "mongodb+srv://wheegor:cLyfJJwubnF53OPR@cluster0.h0xrx.mongodb.net/?retryW
 client = MongoClient(uri, server_api=ServerApi('1'))
 
 
-def addReview(building, bathroom, cleanliness, ambiance, occupancy, name, image = None, brcomments = None):
+def addReview(building, bathroom, cleanliness, ambiance, occupancy, name, image=None, brcomments=None):
     db = client['BoilerPoops']
     collection = db['reviews']
-    data_single = {"Building": building, "Bathroom": bathroom, "Cleanliness": cleanliness, "Ambiance": ambiance, "Occupancy": occupancy,
-                   "Name": name, "Image": image, "BRComments": brcomments}
+    
+    # Insert the new review into the 'reviews' collection
+    data_single = {
+        "Building": building,
+        "Bathroom": bathroom,
+        "Cleanliness": cleanliness,
+        "Ambiance": ambiance,
+        "Occupancy": occupancy,
+        "Name": name,
+        "Image": image,
+        "BRComments": brcomments
+    }
+    print(f"Inserting review: {data_single}")  # Debugging line
+
     collection.insert_one(data_single)
-    updateBuldings(building) #updates buildings db, recalculates everything
+    
+    # Call the function to update overall building review scores
+    updateBuldings(building)  # Updates buildings DB and recalculates other information
 
 #addReview('WALC', 'BR-131', 3.3, 4.4, 5.5)
 
@@ -112,7 +126,6 @@ def getFirstImage(building, bathroom):
 
 
 
-client.close()
 
 """try:
     client.admin.command('ping')
