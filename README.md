@@ -1,4 +1,6 @@
 # BoilerPoopsTest
+Welcome to Boilerpoops, the ultimate solution to maximize your bathroom experiences
+
 
 1. Install backend dependencies:
 cd backend
