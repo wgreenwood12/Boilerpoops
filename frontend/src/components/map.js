@@ -4,8 +4,8 @@ import { GoogleMap, LoadScript, Polygon, OverlayView } from "@react-google-maps/
 import buildings from "../data/buildings";
 
 const containerStyle = {
-  width: "65vw",
-  height: "70vh",
+  width: "50vw",
+  height: "75.3vh",
 };
 
 const center = {
