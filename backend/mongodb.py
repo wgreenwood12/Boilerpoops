@@ -96,6 +96,17 @@ def getImageComments(building, bathroom):
         comments.append(review['BRComments'])
     return images, comments
 
+def getFirstImage(building, bathroom):
+    db = client['BoilerPoops']
+    collection = db['reviews']
+    buildingReviews = collection.find({"Building": f'{building}', "Bathroom": f'{bathroom}'})
+    image = None
+    for review in buildingReviews:
+        if review['Image'] is not None:
+            image = review['Image']
+            return image
+    return image
+
 
 
 
