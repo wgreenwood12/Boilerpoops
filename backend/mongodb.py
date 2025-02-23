@@ -7,11 +7,11 @@ uri = "mongodb+srv://wheegor:cLyfJJwubnF53OPR@cluster0.h0xrx.mongodb.net/?retryW
 client = MongoClient(uri, server_api=ServerApi('1'))
 
 
-def addReview(building, bathroom, cleanliness, ambiance, occupancy, image = None, brcomments = None):
+def addReview(building, bathroom, cleanliness, ambiance, occupancy, name, image = None, brcomments = None):
     db = client['BoilerPoops']
     collection = db['reviews']
     data_single = {"Building": building, "Bathroom": bathroom, "Cleanliness": cleanliness, "Ambiance": ambiance, "Occupancy": occupancy,
-                   "Image": image, "BRComments": brcomments}
+                   "Name": name, "Image": image, "BRComments": brcomments}
     collection.insert_one(data_single)
     updateBuldings(building) #updates buildings db, recalculates everything
 
@@ -91,10 +91,12 @@ def getImageComments(building, bathroom):
     buildingReviews = collection.find({"Building": f'{building}', "Bathroom": f'{bathroom}'})
     images = []
     comments = []
+    names = []
     for review in buildingReviews:
         images.append(review['Image'])
         comments.append(review['BRComments'])
-    return images, comments
+        names.append(review['Name'])
+    return images, comments, names
 
 def getFirstImage(building, bathroom):
     db = client['BoilerPoops']
