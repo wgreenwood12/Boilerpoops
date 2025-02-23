@@ -79,6 +79,24 @@ def leaderboard():
     sorted_data = dict(sorted(rankings.items(), key=lambda item: item[1], reverse=True))
     return sorted_data
 
+def bathroomNames(building):
+    db = client['BoilerPoops']
+    collection = db['reviews']
+    unique_bathrooms = collection.distinct("Bathroom", {"Building": building})
+    return unique_bathrooms
+
+def getImageComments(building, bathroom):
+    db = client['BoilerPoops']
+    collection = db['reviews']
+    buildingReviews = collection.find({"Building": f'{building}', "Bathroom": f'{bathroom}'})
+    images = []
+    comments = []
+    for review in buildingReviews:
+        images.append(review['Image'])
+        comments.append(review['BRComments'])
+    return images, comments
+
+
 
 
 client.close()
