@@ -1,7 +1,8 @@
 const buildings = [
-    { id: 1, name: "Wilmeth Active Learning Center", lat: 40.4233, lng: -86.9210 },
-    { id: 2, name: "Hicks Undergraduate Library", lat: 40.4245, lng: -86.9199 },
-    { id: 3, name: "Engineering Fountain", lat: 40.4275, lng: -86.9138 },
+    { id: 1, name: "WALC", lat: 40.4274, lng: -86.91315 },
+    { id: 2, name: "Elliot", lat: 40.4279, lng: -86.915 },
+    { id: 3, name: "Tarkington", lat: 40.4307, lng: -86.9208 },
+    { id: 4, name: "Corec", lat: 40.4282, lng: -86.9225},
   ];
   
   export default buildings;
